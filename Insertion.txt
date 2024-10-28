@@ -1,15 +1,28 @@
 class Solution {
+    // Method to insert a value into a Binary Search Tree (BST)
     public TreeNode insertIntoBST(TreeNode root, int val) {
-        if(root == null){
+        // If the current node (root) is null, we have found the correct position to insert the new value
+        if (root == null) {
+            // Create a new TreeNode with the given value and return it
             root = new TreeNode(val);
             return root;
         }
-        if(val < root.val){
+        
+        // If the value to be inserted is less than the current node's value,
+        // we need to insert it into the left subtree
+        if (val < root.val) {
+            // Recursively call insertIntoBST on the left child
             root.left = insertIntoBST(root.left, val);
         }
-        if(val > root.val){
+        
+        // If the value to be inserted is greater than the current node's value,
+        // we need to insert it into the right subtree
+        if (val > root.val) {
+            // Recursively call insertIntoBST on the right child
             root.right = insertIntoBST(root.right, val);
         }
+        
+        // Return the unchanged root node after insertion
         return root;
     }
 }
